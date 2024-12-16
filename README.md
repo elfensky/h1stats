@@ -18,7 +18,7 @@ docker buildx build --platform linux/amd64 -t elfensky/h1stats:latest . --push
 
 ### PRODUCTION RUN
 
-```docker-compose
+```yaml
 # docker-compose.yml
 services:
   web:
@@ -56,8 +56,6 @@ server {
     listen 80;
     server_name h1stats.lavrenov.io;
     return 404; # managed by Certbot
-
-
 }
 ```
 
