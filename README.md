@@ -1,8 +1,9 @@
 # h1 stats in docker
 
-## INFO
+### INFO
 
 The original code in app.py was written by SacredSky and posted in the Helldivers Discord.
+public stats are available at: https://umami.lavrenov.io/share/o3LeT4vf5DdcmS7L/h1stats.lavrenov.io
 
 ### LOCAL BUILD
 
@@ -58,7 +59,3 @@ server {
     return 404; # managed by Certbot
 }
 ```
-
-### PUBLIC APP STATISTICS
-
-https://umami.lavrenov.io/share/o3LeT4vf5DdcmS7L/h1stats.lavrenov.io
