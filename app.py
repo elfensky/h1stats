@@ -55,7 +55,10 @@ def fetch_stats():
     # Generate HTML output
     html_template = """
     <html>
-        <head><title>Current Helldivers 1 Stats</title></head>
+        <head>
+            <title>Current Helldivers 1 Stats</title>
+            <script defer src="https://umami.lavrenov.io/script.js" data-website-id="93ee0589-fb24-43f4-ad6c-929c8c0d7644"></script>
+        </head>
         <body>
             <h1>Current Defend Events</h1>
             <div>{{ defend_string|safe }}</div>
