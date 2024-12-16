@@ -1,20 +1,25 @@
-h1 stats in docker
+# h1 stats in docker
 
-# LOCAL BUILD
+## INFO
+
+The original code in app.py was written by SacredSky and posted in the Helldivers Discord.
+
+### LOCAL BUILD
 
 docker build -t h1stats .
 
-# LOCAL RUN
+#### LOCAL RUN
 
 docker run -p 6969:6969 h1stats
 
-# PRODUCTION BUILD
+### PRODUCTION BUILD
 
 docker buildx build --platform linux/amd64 -t elfensky/h1stats:latest . --push
 
-# PRODUCTION RUN
+### PRODUCTION RUN
 
 ```docker-compose
+# docker-compose.yml
 services:
   web:
     image: elfensky/h1stats
@@ -23,6 +28,7 @@ services:
 ```
 
 ```nginx
+# nginx config
 server {
     server_name h1stats.lavrenov.io;
 
@@ -55,6 +61,6 @@ server {
 }
 ```
 
-# PUBLIC APP STATISTICS
+### PUBLIC APP STATISTICS
 
 https://umami.lavrenov.io/share/o3LeT4vf5DdcmS7L/h1stats.lavrenov.io
