@@ -10,7 +10,7 @@ faction_name_list = ["Bugs", "Cyborgs", "Illuminates", "Super Earth"]
 app = Flask(__name__)
 time_magic = -43200
  
-@app.route('/hd1stats', methods=['GET'])
+@app.route('/', methods=['GET'])
 def fetch_stats():
     response_current_war = requests.post("https://api.helldiversgame.com/1.0/", data={"action":"get_campaign_status"}, verify=False).json()
     attack_string = ""

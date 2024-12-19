@@ -1,0 +1,6 @@
+services:
+  h1stats:
+    container_name: h1stats
+    image: elfensky/h1stats
+    ports:
+      - "52001:5000"
