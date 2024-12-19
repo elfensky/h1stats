@@ -107,4 +107,5 @@ def fetch_stats():
     return render_template_string(html_template, defend_string=defend_string, attack_string=attack_string, campaign_string=campaign_string)
  
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000) # dev server
+    # app.run(host='0.0.0.0', port=8000) # production server

@@ -12,7 +12,7 @@ public stats are available at: https://umami.lavrenov.io/share/o3LeT4vf5DdcmS7L/
 #### LOCAL RUN
 
 1. `docker pull elfensky/h1stats`
-2. `docker run -p 52001:5000 elfensky/h1stats`
+2. `docker run -p 52001:8000 elfensky/h1stats`
 3. go to `http://localhost:52001` in your browser
 
 ### PRODUCTION BUILD
@@ -31,7 +31,7 @@ services:
     container_name: h1stats
     image: elfensky/h1stats
     ports:
-      - "52001:5000"
+      - "52001:8000"
 ```
 
 3. start the container with `docker-compose up -d`
