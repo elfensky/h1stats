@@ -17,7 +17,7 @@ public stats are available at: https://umami.lavrenov.io/share/o3LeT4vf5DdcmS7L/
 
 ### PRODUCTION BUILD
 
-`docker buildx build --platform linux/amd64,linux/arm64 -t elfensky/h1stats:latest . --push`
+`docker buildx build --platform linux/amd64 -t elfensky/h1stats:latest . --push`
 
 ### PRODUCTION RUN
 
