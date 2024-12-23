@@ -3,7 +3,7 @@
 ### INFO
 
 The original code in app.py was written by SacredSky and posted in the Helldivers Discord.
-public stats are available at: https://umami.lavrenov.io/share/o3LeT4vf5DdcmS7L/h1stats.lavrenov.io
+public stats are available at: https://umami.lavrenov.io/share/o3LeT4vf5DdcmS7L/helldivers.bot
 
 ### LOCAL BUILD
 
@@ -12,12 +12,12 @@ public stats are available at: https://umami.lavrenov.io/share/o3LeT4vf5DdcmS7L/
 #### LOCAL RUN
 
 1. `docker pull elfensky/h1stats`
-2. `docker run -p 52001:8000 elfensky/h1stats`
+2. `docker run -p 52001:3000 elfensky/h1stats`
 3. go to `http://localhost:52001` in your browser
 
 ### PRODUCTION BUILD
 
-`docker buildx build --platform linux/amd64 -t elfensky/h1stats:latest . --push`
+`docker buildx build --platform linux/amd64,linux/arm64 -t elfensky/h1stats:latest . --push`
 
 ### PRODUCTION RUN
 
@@ -31,7 +31,7 @@ services:
     container_name: h1stats
     image: elfensky/h1stats
     ports:
-      - "52001:8000"
+      - "52001:3000"
 ```
 
 3. start the container with `docker-compose up -d`

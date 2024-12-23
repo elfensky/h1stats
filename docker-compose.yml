@@ -3,4 +3,4 @@ services:
     container_name: h1stats
     image: elfensky/h1stats
     ports:
-      - "52001:8000"
+      - "52001:3000"
