@@ -12,8 +12,8 @@ time_magic = -43200
  
 @app.route('/', methods=['GET'])
 def fetch_stats():
-    # response_current_war = requests.post("https://api.helldiversgame.com/1.0/", data={"action":"get_campaign_status"}, verify=False).json()
-    response_current_war = requests.get("https://api.helldivers.bot/v1/rebroadcast", verify=False).json()
+    response_current_war = requests.post("https://api.helldiversgame.com/1.0/", data={"action":"get_campaign_status"}, verify=False).json()
+    # response_current_war = requests.get("https://api.helldivers.bot/v1/rebroadcast", verify=False).json()
     attack_string = ""
     defend_string = "No defend event in progress<br>"
     campaign_string = ""
@@ -32,20 +32,23 @@ def fetch_stats():
                              faction_name_list[response_current_war['defend_event']['enemy']] + ": " + str(
                 response_current_war['defend_event']['points']) + "/" + str(
                 response_current_war['defend_event']['points_max']) + "<br>"
+
     if 'attack_events' in response_current_war:
         for ae in response_current_war['attack_events']:
             if 'status' in ae and ae['status'] == 'active':
                 p = ae['points'] / float(ae['points_max'])
                 attack_time = datetime.fromtimestamp(ae['end_time']) - datetime.now()
-                attack_string += "Attacking on " + faction_name_list[
-                    ae['enemy']] + ": <b>" + str(
-                    ae['points']) + "/" + str(
-                    ae['points_max']) + "</b> (" + "{:.1%}".format(p) + ") Time Remaining: <span class='timer' id='timer-" + ae['enemy'] + "' data-time='"+ str(int(attack_time.total_seconds())) +"'></span><br>"
+                attack_string += (
+                    "Attacking on " + faction_name_list[ae['enemy']] + ": <b>" + str(ae['points']) + "/" + str(ae['points_max']) +
+                    "</b> (" + "{:.1%}".format(p) + ") Time Remaining: <span class='timer' id='timer-" + str(ae['enemy']) +
+                    "' data-time='" + str(int(attack_time.total_seconds())) + "'></span><br>"
+                )
             else:
-                attack_string += "Last event is <b>" + ae['status'] + "</b> in " + \
-                                 faction_name_list[ae['enemy']] + ": " + str(
-                    ae['points']) + "/" + str(
-                    ae['points_max']) + "<br>"
+                attack_string += (
+                    "Last event is <b>" + ae['status'] + "</b> in " + faction_name_list[ae['enemy']] + ": " +
+                    str(ae['points']) + "/" + str(ae['points_max']) + "<br>"
+                )
+
     if 'campaign_status' in response_current_war:
         for i in range(3):
             ae = response_current_war['campaign_status'][i]
