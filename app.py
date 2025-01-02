@@ -12,8 +12,8 @@ time_magic = -43200
  
 @app.route('/', methods=['GET'])
 def fetch_stats():
-    response_current_war = requests.post("https://api.helldiversgame.com/1.0/", data={"action":"get_campaign_status"}, verify=False).json()
-    # response_current_war = requests.get("https://api.helldivers.bot/v1/rebroadcast", verify=False).json()
+    # response_current_war = requests.post("https://api.helldiversgame.com/1.0/", data={"action":"get_campaign_status"}, verify=False).json()
+    response_current_war = requests.post("https://api.helldivers.bot/rebroadcast", data={"action":"get_campaign_status"}).json()
     attack_string = ""
     defend_string = "No defend event in progress<br>"
     campaign_string = ""
